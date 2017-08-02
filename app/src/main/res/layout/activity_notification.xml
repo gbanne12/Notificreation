@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundGrey"
+    tools:context="com.bannerga.notificreation.NotificationActivity">
+
+
+    <!--
+        Title text box is positioned from top of the screen
+          All other elements are positioned from it.
+     -->
+    <EditText
+        android:id="@+id/titleTextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textAutoCorrect"
+        android:textColor="@color/colorTextGrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/large_margin"
+        android:layout_marginEnd="@dimen/small_margin"/>
+
+
+    <EditText
+        android:id="@+id/bodyTextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textAutoCorrect"
+        android:textColor="@color/colorTextGrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextBox"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginEnd="@dimen/small_margin"/>
+
+
+    <RadioGroup
+        android:id="@+id/radioColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/colorTextGrey"
+
+        android:orientation='horizontal'
+        android:textSize="16sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bodyTextBox"
+        android:layout_marginTop="@dimen/large_margin">
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:buttonTint="@color/colorGreen"
+            android:checked="true"
+            android:text="@string/severity_one"
+            android:textColor="@color/colorTextGrey" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:buttonTint="@color/colorAmber"
+            android:text="@string/severity_two"
+            android:textColor="@color/colorTextGrey" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:buttonTint="@color/colorRed"
+            android:text="@string/severity_three"
+            android:textColor="@color/colorTextGrey" />
+
+    </RadioGroup>
+
+
+<TextView
+    android:id="@+id/titleLabel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:labelFor="@id/titleTextBox"
+    android:text="@string/notification_title_label"
+    android:textColor="@color/colorTextGrey"
+    android:textSize="20sp"
+    app:layout_constraintBottom_toBottomOf="@+id/titleTextBox"
+    app:layout_constraintStart_toStartOf="parent"
+    android:layout_marginStart="@dimen/small_margin"/>
+
+
+
+<TextView
+    android:id="@+id/bodyLabel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:labelFor="@id/bodyTextBox"
+    android:text="@string/notification_body_label"
+    android:textColor="@color/colorTextGrey"
+    android:textSize="20sp"
+    app:layout_constraintBottom_toBottomOf="@+id/bodyTextBox"
+    app:layout_constraintStart_toStartOf="parent"
+    android:layout_marginStart="@dimen/small_margin"/>
+
+<TextView
+    android:id="@+id/radiosLabel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/notification_color_label"
+    android:textColor="@color/colorTextGrey"
+    android:textSize="20sp"
+    app:layout_constraintBottom_toBottomOf="@+id/radioColor"
+    app:layout_constraintStart_toStartOf="parent"
+    android:layout_marginStart="@dimen/small_margin"/>
+
+
+<ImageButton
+    android:id="@+id/okButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/colorBackgroundGrey"
+    android:onClick="buttonClick"
+    android:src="@mipmap/confirm_button"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginBottom="@dimen/medium_margin"
+    android:layout_marginEnd="@dimen/medium_margin"
+    android:contentDescription="@string/notify_button" />
+
+    <!--  removed persistent checkbox
+<CheckBox
+ android:id="@+id/persistentCheckBox"
+ android:checked="true"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ app:layout_constraintTop_toBottomOf="@+id/radioColor"
+ app:layout_constraintEnd_toEndOf="parent"
+ android:layout_marginTop="@dimen/medium_margin"
+ android:layout_marginEnd="@dimen/small_margin"/>
+
+ <TextView
+ android:id="@+id/persistentLabel"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="@string/persistent_check_box_label"
+ android:textColor="@color/colorTextGrey"
+ android:textSize="20sp"
+ app:layout_constraintBottom_toBottomOf="@+id/persistentCheckBox"
+ app:layout_constraintStart_toStartOf="parent"
+ android:layout_marginStart="@dimen/small_margin"/>
+
+  -->
+
+</android.support.constraint.ConstraintLayout>
