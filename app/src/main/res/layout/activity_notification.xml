@@ -125,7 +125,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@color/colorBackgroundGrey"
-    android:onClick="buttonClick"
+    android:onClick="submitClick"
     android:src="@mipmap/confirm_button"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
@@ -133,7 +133,7 @@
     android:layout_marginEnd="@dimen/medium_margin"
     android:contentDescription="@string/notify_button" />
 
-    <!--  removed persistent checkbox
+
 <CheckBox
  android:id="@+id/persistentCheckBox"
  android:checked="true"
@@ -155,6 +155,6 @@
  app:layout_constraintStart_toStartOf="parent"
  android:layout_marginStart="@dimen/small_margin"/>
 
-  -->
+
 
 </android.support.constraint.ConstraintLayout>

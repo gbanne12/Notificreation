@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".MainService" />
+        <service android:name=".notification.ServiceNotification" />
     </application>
 
 </manifest>

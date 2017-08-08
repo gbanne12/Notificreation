@@ -1,4 +1,4 @@
-package com.bannerga.notificreation;
+package com.bannerga.notificreation.notification;
 
 
 import android.app.Notification;
@@ -14,11 +14,16 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-public class MainService extends Service {
+import com.bannerga.notificreation.DismissActivity;
+import com.bannerga.notificreation.NotificationContent;
+import com.bannerga.notificreation.R;
+
+import java.util.Random;
+
+public class ServiceNotification extends Service {
 
     NotificationManager notificationManager;
     int id = 1;
-
 
     @Nullable
     @Override
@@ -28,6 +33,12 @@ public class MainService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Random rand = new Random();
+        id  = Integer.parseInt(
+                Integer.toString(rand.nextInt(9) + 1)
+                        + Integer.toString(rand.nextInt(9) + 1)
+                        + Integer.toString(rand.nextInt(9) + 1));
+
         notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationContent content = NotificationContent.getInstance();
 
@@ -52,7 +63,7 @@ public class MainService extends Service {
         // Start foreground service
         startForeground(id++, notification);
 
-        notificationManager.notify(content.getId(), notification);
+        //notificationManager.notify(content.getId(), notification);
 
         return START_REDELIVER_INTENT;
     }
