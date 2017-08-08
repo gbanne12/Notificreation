@@ -120,23 +120,24 @@
     android:layout_marginStart="@dimen/small_margin"/>
 
 
-<ImageButton
+<Button
     android:id="@+id/okButton"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/colorBackgroundGrey"
+    android:background="@color/colorAccentGrey"
+    android:text="@string/notification_button_label"
+    android:textColor="@color/colorTextGrey"
     android:onClick="submitClick"
-    android:src="@mipmap/confirm_button"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     android:layout_marginBottom="@dimen/medium_margin"
-    android:layout_marginEnd="@dimen/medium_margin"
-    android:contentDescription="@string/notify_button" />
+    android:layout_marginEnd="@dimen/medium_margin" />
 
 
 <CheckBox
  android:id="@+id/persistentCheckBox"
  android:checked="true"
+ android:buttonTint="@color/colorAccentGrey"
  android:layout_width="wrap_content"
  android:layout_height="wrap_content"
  app:layout_constraintTop_toBottomOf="@+id/radioColor"
