@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackgroundGrey"
+    android:background="@color/colorBackground"
     tools:context="com.bannerga.notificreation.NotificationActivity">
 
 
@@ -43,13 +43,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:buttonTint="@color/colorTextGrey"
-
         android:orientation='horizontal'
         android:textSize="16sp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bodyTextBox"
-        android:layout_marginTop="@dimen/large_margin">
+        android:layout_marginTop="@dimen/medium_margin">
 
         <RadioButton
             android:id="@+id/radioButton1"
@@ -89,10 +87,11 @@
     android:labelFor="@id/titleTextBox"
     android:text="@string/notification_title_label"
     android:textColor="@color/colorTextGrey"
-    android:textSize="20sp"
+    android:textSize="16sp"
     app:layout_constraintBottom_toBottomOf="@+id/titleTextBox"
     app:layout_constraintStart_toStartOf="parent"
-    android:layout_marginStart="@dimen/small_margin"/>
+    android:layout_marginStart="@dimen/small_margin"
+    android:layout_marginBottom="@dimen/micro_margin"/>
 
 
 
@@ -103,10 +102,11 @@
     android:labelFor="@id/bodyTextBox"
     android:text="@string/notification_body_label"
     android:textColor="@color/colorTextGrey"
-    android:textSize="20sp"
+    android:textSize="16sp"
     app:layout_constraintBottom_toBottomOf="@+id/bodyTextBox"
     app:layout_constraintStart_toStartOf="parent"
-    android:layout_marginStart="@dimen/small_margin"/>
+    android:layout_marginStart="@dimen/small_margin"
+    android:layout_marginBottom="@dimen/micro_margin"/>
 
 <TextView
     android:id="@+id/radiosLabel"
@@ -114,17 +114,18 @@
     android:layout_height="wrap_content"
     android:text="@string/notification_color_label"
     android:textColor="@color/colorTextGrey"
-    android:textSize="20sp"
+    android:textSize="16sp"
     app:layout_constraintBottom_toBottomOf="@+id/radioColor"
     app:layout_constraintStart_toStartOf="parent"
-    android:layout_marginStart="@dimen/small_margin"/>
+    android:layout_marginStart="@dimen/small_margin"
+    android:layout_marginBottom="@dimen/micro_margin"/>
 
 
 <Button
     android:id="@+id/okButton"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/colorAccentGrey"
+    android:background="@color/colorAccentBlue"
     android:text="@string/notification_button_label"
     android:textColor="@color/colorTextGrey"
     android:onClick="submitClick"
@@ -133,28 +134,28 @@
     android:layout_marginBottom="@dimen/medium_margin"
     android:layout_marginEnd="@dimen/medium_margin" />
 
-
 <CheckBox
- android:id="@+id/persistentCheckBox"
- android:checked="true"
- android:buttonTint="@color/colorAccentGrey"
- android:layout_width="wrap_content"
- android:layout_height="wrap_content"
- app:layout_constraintTop_toBottomOf="@+id/radioColor"
- app:layout_constraintStart_toStartOf="@+id/radioColor"
- android:layout_marginTop="@dimen/medium_margin"
- android:layout_marginEnd="@dimen/small_margin"/>
+     android:id="@+id/persistentCheckBox"
+     android:checked="true"
+     android:buttonTint="@color/colorAccentBlue"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     app:layout_constraintTop_toBottomOf="@+id/radioColor"
+     app:layout_constraintStart_toStartOf="@+id/radioColor"
+     android:layout_marginTop="@dimen/medium_margin"
+     android:layout_marginEnd="@dimen/small_margin"/>
 
- <TextView
- android:id="@+id/persistentLabel"
- android:layout_width="wrap_content"
- android:layout_height="wrap_content"
- android:text="@string/persistent_check_box_label"
- android:textColor="@color/colorTextGrey"
- android:textSize="20sp"
- app:layout_constraintBottom_toBottomOf="@+id/persistentCheckBox"
- app:layout_constraintStart_toStartOf="parent"
- android:layout_marginStart="@dimen/small_margin"/>
+<TextView
+     android:id="@+id/persistentLabel"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="@string/persistent_check_box_label"
+     android:textColor="@color/colorTextGrey"
+     android:textSize="16sp"
+     app:layout_constraintBottom_toBottomOf="@+id/persistentCheckBox"
+     app:layout_constraintStart_toStartOf="parent"
+     android:layout_marginStart="@dimen/small_margin"
+     android:layout_marginBottom="@dimen/micro_margin"/>
 
 
 

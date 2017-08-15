@@ -1,4 +1,5 @@
 <resources>
+    <dimen name="micro_margin">5dp</dimen>
     <dimen name="small_margin">10dp</dimen>
     <dimen name="medium_margin">25dp</dimen>
     <dimen name="large_margin">50dp</dimen>
