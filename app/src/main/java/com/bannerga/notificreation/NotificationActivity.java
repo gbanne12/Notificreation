@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
+import com.bannerga.notificreation.notification.NotificationContent;
 import com.bannerga.notificreation.notification.PlainOldNotification;
 import com.bannerga.notificreation.notification.ServiceNotification;
 
@@ -87,6 +88,19 @@ public class NotificationActivity extends AppCompatActivity {
                         dialog.cancel();
                     }
                 });
+        alertDialogBuilder.create().show();
+    }
+
+    public void dialogShow(View v) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this)
+                .setTitle("Title")
+                .setView(getLayoutInflater().inflate(R.layout.fragment_color_palette, null))
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
         alertDialogBuilder.create().show();
     }
 
