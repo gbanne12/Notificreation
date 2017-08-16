@@ -14,7 +14,6 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 
 import com.bannerga.notificreation.DismissActivity;
-import com.bannerga.notificreation.NotificationContent;
 import com.bannerga.notificreation.R;
 
 import java.util.Random;

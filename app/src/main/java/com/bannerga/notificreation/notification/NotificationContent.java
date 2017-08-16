@@ -1,7 +1,5 @@
-package com.bannerga.notificreation;
+package com.bannerga.notificreation.notification;
 
-import android.app.NotificationManager;
-import android.content.Context;
 import android.util.Log;
 
 public class NotificationContent {

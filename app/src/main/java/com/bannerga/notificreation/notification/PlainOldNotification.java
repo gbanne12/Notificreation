@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.os.Build;
 
 import com.bannerga.notificreation.NotificationActivity;
-import com.bannerga.notificreation.NotificationContent;
 import com.bannerga.notificreation.R;
 
 import java.util.Random;
