@@ -11,6 +11,7 @@
     <color name="colorGreen">#00c853</color>
     <color name="colorAmber">#f57f17</color>
 
+
     <color name="red">#F6402C</color>
     <color name="pink">#EB1460</color>
     <color name="purple">#9C1AB1</color>
@@ -30,5 +31,26 @@
     <color name="brown">#7A5547</color>
     <color name="grey">#9D9D9D</color>
     <color name="blue_grey">#5E7C8B</color>
+
+    <array name="many_shades_of_grey">
+    <item>#111111</item>
+    <item>#d50000</item>
+    <item>#F6402C</item>
+    <item>#EB1460</item>
+    <item>#9C1AB1</item>
+    <item>#6633B9</item>
+    <item>#3D4DB7</item>
+    <item>#1093F5</item>
+    <item>#009687</item>
+    <item>#46AF4A</item>
+    <item>#88C440</item>
+    <item>#CCDD1E</item>
+    <item>#FFEC16</item>
+    <item>#FF9800</item>
+    <item>#FF5505</item>
+    <item>#7A5547</item>
+    <item>#9D9D9D</item>
+    <item>#5E7C8B</item>
+    </array>
 
 </resources>
