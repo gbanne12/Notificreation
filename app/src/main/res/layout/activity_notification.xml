@@ -45,89 +45,88 @@
         app:srcCompat="@android:drawable/ic_notification_overlay"
         android:clickable="true"
         android:onClick="showColorPalette"
-        app:layout_constraintStart_toEndOf="colorLabel"
+        app:layout_constraintStart_toStartOf="@id/persistentCheckBox"
         app:layout_constraintTop_toBottomOf="@+id/bodyTextBox"
-        android:layout_marginTop="@dimen/medium_margin"/>
+        android:layout_marginTop="@dimen/large_margin"
+        android:layout_marginStart="@dimen/small_margin"/>
+
+
+    <TextView
+        android:id="@+id/titleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/titleTextBox"
+        android:text="@string/notification_title_label"
+        android:textColor="@color/colorTextGrey"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/titleTextBox"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/micro_margin"/>
 
 
 
+    <TextView
+        android:id="@+id/bodyLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/bodyTextBox"
+        android:text="@string/notification_body_label"
+        android:textColor="@color/colorTextGrey"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/bodyTextBox"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/micro_margin"/>
 
-<TextView
-    android:id="@+id/titleLabel"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:labelFor="@id/titleTextBox"
-    android:text="@string/notification_title_label"
-    android:textColor="@color/colorTextGrey"
-    android:textSize="16sp"
-    app:layout_constraintBottom_toBottomOf="@+id/titleTextBox"
-    app:layout_constraintStart_toStartOf="parent"
-    android:layout_marginStart="@dimen/small_margin"
-    android:layout_marginBottom="@dimen/micro_margin"/>
+    <TextView
+        android:id="@+id/colorLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/notification_color_label"
+        android:textColor="@color/colorTextGrey"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/colorpicker"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/micro_margin"/>
+
+    <TextView
+        android:id="@+id/persistentLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/persistent_check_box_label"
+        android:textColor="@color/colorTextGrey"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/persistentCheckBox"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/micro_margin"/>
+
+    <CheckBox
+         android:id="@+id/persistentCheckBox"
+         android:checked="true"
+         android:buttonTint="@color/colorAccentBlue"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         app:layout_constraintTop_toBottomOf="@+id/colorpicker"
+        app:layout_constraintStart_toStartOf="@id/bodyTextBox"
+         android:layout_marginTop="@dimen/medium_margin" />
+
+    <Button
+        android:id="@+id/okButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccentBlue"
+        android:text="@string/notification_button_label"
+        android:textColor="@color/colorTextGrey"
+        android:onClick="submitClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="@dimen/medium_margin"
+        android:layout_marginEnd="@dimen/medium_margin" />
 
 
-
-<TextView
-    android:id="@+id/bodyLabel"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:labelFor="@id/bodyTextBox"
-    android:text="@string/notification_body_label"
-    android:textColor="@color/colorTextGrey"
-    android:textSize="16sp"
-    app:layout_constraintBottom_toBottomOf="@+id/bodyTextBox"
-    app:layout_constraintStart_toStartOf="parent"
-    android:layout_marginStart="@dimen/small_margin"
-    android:layout_marginBottom="@dimen/micro_margin"/>
-
-<TextView
-    android:id="@+id/colorLabel"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/notification_color_label"
-    android:textColor="@color/colorTextGrey"
-    android:textSize="16sp"
-    app:layout_constraintBottom_toBottomOf="@+id/colorpicker"
-    app:layout_constraintStart_toStartOf="parent"
-    android:layout_marginStart="@dimen/small_margin"
-    android:layout_marginBottom="@dimen/micro_margin"/>
-
-
-<Button
-    android:id="@+id/okButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@color/colorAccentBlue"
-    android:text="@string/notification_button_label"
-    android:textColor="@color/colorTextGrey"
-    android:onClick="submitClick"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    android:layout_marginBottom="@dimen/medium_margin"
-    android:layout_marginEnd="@dimen/medium_margin" />
-
-<CheckBox
-     android:id="@+id/persistentCheckBox"
-     android:checked="true"
-     android:buttonTint="@color/colorAccentBlue"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     app:layout_constraintTop_toBottomOf="@+id/colorpicker"
-     app:layout_constraintStart_toStartOf="@+id/colorpicker"
-     android:layout_marginTop="@dimen/medium_margin"
-     android:layout_marginEnd="@dimen/small_margin"/>
-
-<TextView
-     android:id="@+id/persistentLabel"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:text="@string/persistent_check_box_label"
-     android:textColor="@color/colorTextGrey"
-     android:textSize="16sp"
-     app:layout_constraintBottom_toBottomOf="@+id/persistentCheckBox"
-     app:layout_constraintStart_toStartOf="parent"
-     android:layout_marginStart="@dimen/small_margin"
-     android:layout_marginBottom="@dimen/micro_margin"/>
 
 
 
