@@ -6,7 +6,9 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
+import android.util.Log;
 
 import com.bannerga.notificreation.NotificationActivity;
 import com.bannerga.notificreation.R;
@@ -39,12 +41,13 @@ public class PlainOldNotification {
         NotificationContent content = NotificationContent.getInstance();
         NotificationManager notificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        Log.i("debug","value is " + content.getColor());
         Notification.Builder builder = new Notification.Builder(context)
                 .setContentIntent(contentIntent)
                 .setContentTitle(content.getTitle())
                 .setContentText(content.getBody())
                 .setSmallIcon(R.mipmap.notification_icon)
-                .setColor(context.getResources().getColor(content.getColor()))
+                .setColor(content.getColor())
                 .setAutoCancel(true)
                 .setOngoing(false);
 

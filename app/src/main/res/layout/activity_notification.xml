@@ -38,46 +38,18 @@
         android:layout_marginEnd="@dimen/small_margin"/>
 
 
-    <RadioGroup
-        android:id="@+id/radioColor"
+    <ImageView
+        android:id="@+id/colorpicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:buttonTint="@color/colorTextGrey"
-        android:orientation='horizontal'
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_notification_overlay"
+        android:clickable="true"
+        android:onClick="showColorPalette"
+        app:layout_constraintStart_toEndOf="colorLabel"
         app:layout_constraintTop_toBottomOf="@+id/bodyTextBox"
-        android:layout_marginTop="@dimen/medium_margin">
+        android:layout_marginTop="@dimen/medium_margin"/>
 
-        <RadioButton
-            android:id="@+id/radioButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:buttonTint="@color/colorGreen"
-            android:checked="true"
-            android:text="@string/severity_one"
-            android:textColor="@color/colorTextGrey" />
 
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:buttonTint="@color/colorAmber"
-            android:text="@string/severity_two"
-            android:textColor="@color/colorTextGrey" />
-
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:buttonTint="@color/colorRed"
-            android:text="@string/severity_three"
-            android:textColor="@color/colorTextGrey" />
-
-    </RadioGroup>
 
 
 <TextView
@@ -109,13 +81,13 @@
     android:layout_marginBottom="@dimen/micro_margin"/>
 
 <TextView
-    android:id="@+id/radiosLabel"
+    android:id="@+id/colorLabel"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/notification_color_label"
     android:textColor="@color/colorTextGrey"
     android:textSize="16sp"
-    app:layout_constraintBottom_toBottomOf="@+id/radioColor"
+    app:layout_constraintBottom_toBottomOf="@+id/colorpicker"
     app:layout_constraintStart_toStartOf="parent"
     android:layout_marginStart="@dimen/small_margin"
     android:layout_marginBottom="@dimen/micro_margin"/>
@@ -140,8 +112,8 @@
      android:buttonTint="@color/colorAccentBlue"
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
-     app:layout_constraintTop_toBottomOf="@+id/radioColor"
-     app:layout_constraintStart_toStartOf="@+id/radioColor"
+     app:layout_constraintTop_toBottomOf="@+id/colorpicker"
+     app:layout_constraintStart_toStartOf="@+id/colorpicker"
      android:layout_marginTop="@dimen/medium_margin"
      android:layout_marginEnd="@dimen/small_margin"/>
 

@@ -3,9 +3,9 @@ package com.bannerga.notificreation;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -14,6 +14,7 @@ import android.widget.RadioGroup;
 import com.bannerga.notificreation.notification.NotificationContent;
 import com.bannerga.notificreation.notification.PlainOldNotification;
 import com.bannerga.notificreation.notification.ServiceNotification;
+import com.thebluealliance.spectrum.SpectrumDialog;
 
 import java.util.Random;
 
@@ -23,6 +24,7 @@ public class NotificationActivity extends AppCompatActivity {
     private EditText bodyText;
     private RadioGroup colorRadios;
     private CheckBox persistentCheckBox;
+    private int colorSelection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class NotificationActivity extends AppCompatActivity {
         NotificationContent content = NotificationContent.getInstance();
         content.setBody(bodyText.getText().toString());
         content.setTitle(titleText.getText().toString());
+        content.setColor(colorSelection);
 
         Random rand = new Random();
         String id = Integer.toString(rand.nextInt(9) + 1)
@@ -47,25 +50,29 @@ public class NotificationActivity extends AppCompatActivity {
         int notificationId = Integer.parseInt(id);
         content.setId(notificationId);
 
-        int selectedId = colorRadios.getCheckedRadioButtonId();
-
-        if (selectedId == R.id.radioButton1) {
-            content.setColor(R.color.colorGreen);
-        } else if (selectedId == R.id.radioButton2) {
-            content.setColor(R.color.colorAmber);
-        } else if (selectedId == R.id.radioButton3) {
-            content.setColor(R.color.colorRed);
-        }
-
         if (persistentCheckBox.isChecked()) {
             Intent serviceIntent = new Intent(this, ServiceNotification.class);
             startService(serviceIntent);
-            Log.i("debug", "service notification issued");
         } else {
             PlainOldNotification notification = new PlainOldNotification(this);
             notification.issueNotification();
-            Log.i("debug", "plain old notification issued");
         }
+    }
+
+    public void showColorPalette(View v) {
+        new SpectrumDialog.Builder(this)
+                .setColors(R.array.many_shades_of_grey)
+                .setSelectedColorRes(R.color.orange)
+                .setDismissOnColorSelected(true)
+                .setFixedColumnCount(4)
+                .setOnColorSelectedListener(new SpectrumDialog.OnColorSelectedListener() {
+                    @Override
+                    public void onColorSelected(boolean positiveResult, @ColorInt int color) {
+                        if (positiveResult) {
+                            colorSelection = color;
+                        }
+                    }
+                }).build().show(getSupportFragmentManager(), "color palette");
     }
 
     private void checkFirstRun() {
@@ -90,18 +97,4 @@ public class NotificationActivity extends AppCompatActivity {
                 });
         alertDialogBuilder.create().show();
     }
-
-    public void dialogShow(View v) {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this)
-                .setTitle("Title")
-                .setView(getLayoutInflater().inflate(R.layout.fragment_color_palette, null))
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-
-        alertDialogBuilder.create().show();
-    }
-
 }
