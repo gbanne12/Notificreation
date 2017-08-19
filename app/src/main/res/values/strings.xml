@@ -14,6 +14,7 @@
     <string name="severity_one">Green</string>
     <string name="title_activity_app_bar">AppBarActivity</string>
     <string name="notify_button">confirm</string>
+    <string name="color_palette_icon">confirm</string>
     <string name="alert_dialog">"Coloring of the notification is only allowed On Android O and above. To enable this the notification has to be made persistent as a service. Tap on the notification to dismiss and end the service"</string>
 
 

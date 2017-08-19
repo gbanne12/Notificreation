@@ -37,18 +37,19 @@
         android:layout_marginTop="@dimen/medium_margin"
         android:layout_marginEnd="@dimen/small_margin"/>
 
-
     <ImageView
         android:id="@+id/colorpicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_notification_overlay"
+        android:src="@drawable/ic_color_palette"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="showColorPalette"
-        app:layout_constraintStart_toStartOf="@id/persistentCheckBox"
+        app:layout_constraintStart_toStartOf="@id/persistentSwitch"
         app:layout_constraintTop_toBottomOf="@+id/bodyTextBox"
-        android:layout_marginTop="@dimen/large_margin"
-        android:layout_marginStart="@dimen/small_margin"/>
+        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginStart="@dimen/small_margin"
+        android:contentDescription="@string/color_palette_icon" />
 
 
     <TextView
@@ -63,8 +64,6 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/small_margin"
         android:layout_marginBottom="@dimen/micro_margin"/>
-
-
 
     <TextView
         android:id="@+id/bodyLabel"
@@ -98,26 +97,28 @@
         android:text="@string/persistent_check_box_label"
         android:textColor="@color/colorTextGrey"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/persistentCheckBox"
+        app:layout_constraintBottom_toBottomOf="@+id/persistentSwitch"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/small_margin"
         android:layout_marginBottom="@dimen/micro_margin"/>
 
-    <CheckBox
-         android:id="@+id/persistentCheckBox"
-         android:checked="true"
-         android:buttonTint="@color/colorAccentBlue"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         app:layout_constraintTop_toBottomOf="@+id/colorpicker"
-        app:layout_constraintStart_toStartOf="@id/bodyTextBox"
-         android:layout_marginTop="@dimen/medium_margin" />
-
-    <Button
-        android:id="@+id/okButton"
+    <Switch
+        android:id="@+id/persistentSwitch"
+        android:checked="true"
+        android:buttonTint="@color/colorAccentBlue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccentBlue"
+        app:layout_constraintTop_toBottomOf="@+id/colorpicker"
+        app:layout_constraintStart_toStartOf="@id/bodyTextBox"
+        android:layout_marginTop="@dimen/medium_margin" />
+
+    <ImageButton
+        android:id="@+id/okButton"
+        android:src="@mipmap/ic_notification_badge"
+        android:tint="@color/colorTextGrey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
         android:text="@string/notification_button_label"
         android:textColor="@color/colorTextGrey"
         android:onClick="submitClick"
@@ -125,9 +126,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="@dimen/medium_margin"
         android:layout_marginEnd="@dimen/medium_margin" />
-
-
-
 
 
 </android.support.constraint.ConstraintLayout>

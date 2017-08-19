@@ -9,7 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioGroup;
+import android.widget.ImageView;
+import android.widget.Switch;
 
 import com.bannerga.notificreation.notification.NotificationContent;
 import com.bannerga.notificreation.notification.PlainOldNotification;
@@ -22,9 +23,12 @@ public class NotificationActivity extends AppCompatActivity {
 
     private EditText titleText;
     private EditText bodyText;
-    private RadioGroup colorRadios;
     private CheckBox persistentCheckBox;
+    private Switch persistentSwitch;
+    private ImageView paletteIcon;
+
     private int colorSelection;
+    private int previousColor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +37,9 @@ public class NotificationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notification);
         titleText = findViewById(R.id.titleTextBox);
         bodyText = findViewById(R.id.bodyTextBox);
-        colorRadios = findViewById(R.id.radioColor);
-        persistentCheckBox = findViewById(R.id.persistentCheckBox);
+        //persistentCheckBox = findViewById(R.id.persistentCheckBox);
+        persistentSwitch = findViewById(R.id.persistentSwitch);
+        paletteIcon = findViewById(R.id.colorpicker);
     }
 
     public void submitClick(View view) {
@@ -50,7 +55,7 @@ public class NotificationActivity extends AppCompatActivity {
         int notificationId = Integer.parseInt(id);
         content.setId(notificationId);
 
-        if (persistentCheckBox.isChecked()) {
+        if (persistentSwitch.isChecked()) {
             Intent serviceIntent = new Intent(this, ServiceNotification.class);
             startService(serviceIntent);
         } else {
@@ -62,7 +67,7 @@ public class NotificationActivity extends AppCompatActivity {
     public void showColorPalette(View v) {
         new SpectrumDialog.Builder(this)
                 .setColors(R.array.many_shades_of_grey)
-                .setSelectedColorRes(R.color.orange)
+                .setSelectedColorRes(R.color.white)
                 .setDismissOnColorSelected(true)
                 .setFixedColumnCount(4)
                 .setOnColorSelectedListener(new SpectrumDialog.OnColorSelectedListener() {
@@ -70,9 +75,12 @@ public class NotificationActivity extends AppCompatActivity {
                     public void onColorSelected(boolean positiveResult, @ColorInt int color) {
                         if (positiveResult) {
                             colorSelection = color;
+                            paletteIcon.setColorFilter(colorSelection);
                         }
                     }
                 }).build().show(getSupportFragmentManager(), "color palette");
+
+        //paletteIcon.setColorFilter(colorSelection);
     }
 
     private void checkFirstRun() {
