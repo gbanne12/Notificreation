@@ -5,7 +5,7 @@
     <string name="title_activity_notification">Notificreation</string>
     <string name="notification_body_label">Message</string>
     <string name="notification_title_label">Title</string>
-    <string name="notification_button_label">notify</string>
+    <string name="notification_button_label">Add</string>
     <string name="notification_color_label">Color</string>
     <string name="notification_help_label">help</string>
     <string name="persistent_check_box_label">Persistent</string>

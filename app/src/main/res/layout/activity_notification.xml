@@ -114,13 +114,11 @@
         app:layout_constraintStart_toStartOf="@id/bodyTextBox"
         android:layout_marginTop="@dimen/medium_margin" />
 
-    <ImageButton
+    <Button
         android:id="@+id/okButton"
-        android:src="@mipmap/ic_notification_badge"
-        android:tint="@color/colorTextGrey"
+        android:background="@color/colorAccentBlue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/round_button"
         android:text="@string/notification_button_label"
         android:textColor="@color/colorTextGrey"
         android:onClick="submitClick"
