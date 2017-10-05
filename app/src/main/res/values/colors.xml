@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorToolBar">#1DA1F2</color>
+    <color name="colorToolBar">#f9a825</color>
     <color name="colorStatusBar">#1DA1F2</color>
-    <color name="colorAccent">#1DA1F2</color>
-    <color name="colorBackground">#1b2836</color>
-    <color name="colorTextGrey">#f5f5f5</color>
-    <color name="colorAccentBlue">#1DA1F2</color>
+    <color name="colorAccent">#1e88e5</color>
+    <color name="colorBackground">#f5f5f5</color>
+    <color name="colorTextGrey">#757575</color>
+    <color name="colorAccentBlue">#f9a825</color>
 
     <color name="colorRed">#d50000</color>
     <color name="colorGreen">#00c853</color>
