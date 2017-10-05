@@ -36,30 +36,13 @@ public class PlainOldNotification {
                 .setColor(content.getColor())
                 .setAutoCancel(true)
                 .setOngoing(false);
-        setAdditionalAndroidOreoBehaviour(notificationManager, builder);
+        setAndroidOBehaviour(notificationManager, builder);
         Notification notification = builder.build();
 
         notificationManager.notify(getRandomDigit(), notification);
     }
 
-    private PendingIntent getPendingIntent() {
-        Intent notificationIntent = new Intent(context, NotificationActivity.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(context, 1,
-                notificationIntent, PendingIntent.FLAG_IMMUTABLE);
-        return contentIntent;
-    }
-
-    private int getRandomDigit() {
-        Random rand = new Random();
-        int id = Integer.parseInt(Integer.toString(rand.nextInt(9) + 1)
-                + Integer.toString(rand.nextInt(9) + 1)
-                + Integer.toString(rand.nextInt(9) + 1));
-        return id;
-    }
-
-    private void setAdditionalAndroidOreoBehaviour(
-            NotificationManager manager, Notification.Builder builder) {
-
+    private void setAndroidOBehaviour(NotificationManager manager, Notification.Builder builder) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             String CHANNEL_ID = "my_channel_02";
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID,
@@ -69,5 +52,21 @@ public class PlainOldNotification {
             builder.setColorized(true);
             builder.setChannelId(CHANNEL_ID);
         }
+    }
+
+    private PendingIntent getPendingIntent() {
+        Intent notificationIntent = new Intent(context, NotificationActivity.class);
+
+        return PendingIntent.getActivity(context,
+                getRandomDigit(),
+                notificationIntent,
+                PendingIntent.FLAG_IMMUTABLE);
+    }
+
+    private int getRandomDigit() {
+        Random rand = new Random();
+        return Integer.parseInt(Integer.toString(rand.nextInt(9) + 1)
+                + Integer.toString(rand.nextInt(9) + 1)
+                + Integer.toString(rand.nextInt(9) + 1));
     }
 }
