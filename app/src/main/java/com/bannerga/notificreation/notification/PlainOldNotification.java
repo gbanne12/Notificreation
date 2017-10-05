@@ -6,9 +6,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
-import android.util.Log;
 
 import com.bannerga.notificreation.NotificationActivity;
 import com.bannerga.notificreation.R;
@@ -25,48 +23,51 @@ public class PlainOldNotification {
     }
 
     public void issueNotification() {
-        Random rand = new Random();
-        int id  = Integer.parseInt(
-                Integer.toString(rand.nextInt(9) + 1)
-                + Integer.toString(rand.nextInt(9) + 1)
-                + Integer.toString(rand.nextInt(9) + 1));
-
-        Intent notificationIntent = new Intent(context, NotificationActivity.class);
-
-        PendingIntent contentIntent = PendingIntent.getActivity(context,
-                1,
-                notificationIntent,
-                PendingIntent.FLAG_IMMUTABLE);
-
-        NotificationContent content = NotificationContent.getInstance();
         NotificationManager notificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        Log.i("debug","value is " + content.getColor());
+
+        // Build notification
+        NotificationContent content = NotificationContent.getInstance();
         Notification.Builder builder = new Notification.Builder(context)
-                .setContentIntent(contentIntent)
+                .setContentIntent(getPendingIntent())
                 .setContentTitle(content.getTitle())
                 .setContentText(content.getBody())
                 .setSmallIcon(R.mipmap.notification_icon)
                 .setColor(content.getColor())
                 .setAutoCancel(true)
                 .setOngoing(false);
+        setAdditionalAndroidOreoBehaviour(notificationManager, builder);
+        Notification notification = builder.build();
 
-        if (isOnAndroidO()) {
+        notificationManager.notify(getRandomDigit(), notification);
+    }
+
+    private PendingIntent getPendingIntent() {
+        Intent notificationIntent = new Intent(context, NotificationActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(context, 1,
+                notificationIntent, PendingIntent.FLAG_IMMUTABLE);
+        return contentIntent;
+    }
+
+    private int getRandomDigit() {
+        Random rand = new Random();
+        int id = Integer.parseInt(Integer.toString(rand.nextInt(9) + 1)
+                + Integer.toString(rand.nextInt(9) + 1)
+                + Integer.toString(rand.nextInt(9) + 1));
+        return id;
+    }
+
+    private void setAdditionalAndroidOreoBehaviour(
+            NotificationManager manager, Notification.Builder builder) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             String CHANNEL_ID = "my_channel_02";
-            NotificationChannel channel = new NotificationChannel(
-                    "my_channel_02",
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID,
                     "Channel human readable title",
                     NotificationManager.IMPORTANCE_DEFAULT);
-            notificationManager.createNotificationChannel(channel);
+            manager.createNotificationChannel(channel);
             builder.setColorized(true);
             builder.setChannelId(CHANNEL_ID);
         }
-        Notification notification = builder.build();
-
-        notificationManager.notify(id++, notification);
-    }
-
-    private boolean isOnAndroidO() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
     }
 }
