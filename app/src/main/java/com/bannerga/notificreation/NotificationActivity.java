@@ -15,7 +15,7 @@ import android.widget.Switch;
 import com.bannerga.notificreation.notification.NotificationContent;
 import com.bannerga.notificreation.notification.PlainOldNotification;
 import com.bannerga.notificreation.notification.ServiceNotification;
-import com.thebluealliance.spectrum.SpectrumDialog;
+
 
 import java.util.Random;
 
@@ -38,7 +38,7 @@ public class NotificationActivity extends AppCompatActivity {
         titleText = findViewById(R.id.titleTextBox);
         bodyText = findViewById(R.id.bodyTextBox);
         //persistentCheckBox = findViewById(R.id.persistentCheckBox);
-        persistentSwitch = findViewById(R.id.persistentSwitch);
+       // persistentSwitch = findViewById(R.id.persistentSwitch);
         paletteIcon = findViewById(R.id.colorpicker);
     }
 
@@ -55,16 +55,18 @@ public class NotificationActivity extends AppCompatActivity {
         int notificationId = Integer.parseInt(id);
         content.setId(notificationId);
 
-        if (persistentSwitch.isChecked()) {
+//        if (persistentSwitch.isChecked()) {
             Intent serviceIntent = new Intent(this, ServiceNotification.class);
             startService(serviceIntent);
-        } else {
-            PlainOldNotification notification = new PlainOldNotification(this);
+
+      /*  } else {
+           PlainOldNotification notification = new PlainOldNotification(this);
             notification.issueNotification();
-        }
+        }*/
+
     }
 
-    public void showColorPalette(View v) {
+    /*public void showColorPalette(View v) {
         new SpectrumDialog.Builder(this)
                 .setColors(R.array.many_shades_of_grey)
                 .setSelectedColorRes(R.color.white)
@@ -81,7 +83,7 @@ public class NotificationActivity extends AppCompatActivity {
                 }).build().show(getSupportFragmentManager(), "color palette");
 
         //paletteIcon.setColorFilter(colorSelection);
-    }
+    }*/
 
     private void checkFirstRun() {
         boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
