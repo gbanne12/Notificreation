@@ -14,82 +14,118 @@
         android:clipToPadding="false"
         android:orientation="vertical"
         android:padding="24dp"
-        android:paddingTop="16dp">
+        android:paddingTop="16dp"
+        android:layout_marginStart="@dimen/large_margin"
+        android:layout_marginEnd="@dimen/large_margin">
 
         <!--
             Title text box is positioned from top of the screen
               All other elements are positioned from it.
          -->
         <android.support.design.widget.TextInputLayout
-            style="@style/AppTheme.TextInputLayout"
             android:id="@+id/password_text_input"
+            style="@style/AppTheme.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/notification_title_label"
             app:errorEnabled="true">
-
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/titleTextBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/large_margin"
-                android:layout_marginEnd="@dimen/small_margin"
+
                 android:backgroundTint="@color/colorAccent"
                 android:ems="10"
                 android:inputType="textAutoCorrect"
                 android:textColor="@color/colorTextGrey"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
+            style="@style/AppTheme.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/notification_body_label"
-            style="@style/AppTheme.TextInputLayout">
-
+            android:hint="@string/notification_body_label">
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/bodyTextBox"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/medium_margin"
-                android:layout_marginEnd="@dimen/small_margin"
                 android:backgroundTint="@color/colorAccent"
                 android:ems="10"
                 android:inputType="textAutoCorrect"
                 android:textColor="@color/colorTextGrey"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleTextBox" />
-
         </android.support.design.widget.TextInputLayout>
 
-        <ImageView
-            android:id="@+id/colorpicker"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:src="@drawable/color_chooser"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="showColorPalette"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:contentDescription="@string/color_palette_icon" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent">
+
+            <ImageView
+                android:id="@+id/colorpicker"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="@dimen/large_margin"
+                android:layout_marginStart="@dimen/large_margin"
+                android:clickable="true"
+                android:contentDescription="@string/color_palette_icon"
+                android:focusable="true"
+                android:onClick="showColorPalette"
+                android:src="@drawable/color_chooser"
+                app:layout_constraintStart_toEndOf="@id/colorLabel" />
+
+            <TextView
+                android:id="@+id/colorLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large_margin"
+                android:text="@string/notification_color_label"
+                android:textColor="@color/colorTextGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/colorpicker"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/persistentLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:text="@string/persistent_check_box_label"
+                android:textColor="@color/colorTextGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/persistentSwitch"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Switch
+                android:id="@+id/persistentSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:layout_marginStart="@dimen/small_margin"
+                android:buttonTint="@color/colorAccentBlue"
+                android:checked="true"
+                app:layout_constraintStart_toEndOf="@id/persistentLabel"
+                app:layout_constraintTop_toBottomOf="@+id/colorpicker" />
 
 
-        <Button
-            android:id="@+id/okButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/medium_margin"
-            android:layout_marginBottom="@dimen/medium_margin"
-            android:background="@color/colorAccent"
-            android:onClick="submitClick"
-            android:text="@string/notification_button_label"
-            android:textColor="@color/colorBackground"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <Button
+                android:id="@+id/okButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="@dimen/large_margin"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:background="@color/colorAccent"
+                android:onClick="submitClick"
+                android:text="@string/notification_button_label"
+                android:textColor="@color/colorBackground" />
 
-
+        </android.support.constraint.ConstraintLayout>
 
     </LinearLayout>
 
