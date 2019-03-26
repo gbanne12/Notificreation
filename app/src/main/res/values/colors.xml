@@ -2,7 +2,7 @@
 <resources>
     <color name="colorToolBar">#C9C7C7</color>
     <color name="colorStatusBar">#1DA1F2</color>
-    <color name="colorAccent">#092135</color>
+    <color name="colorAccent">#F44336</color>
     <color name="colorBackground">#DBD8D8</color>
     <color name="colorTextGrey">#757575</color>
     <color name="colorAccentBlue">#f9a825</color>
