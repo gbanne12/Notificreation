@@ -2,6 +2,7 @@ package com.bannerga.notificreation;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.v7.app.AlertDialog;
@@ -28,18 +29,22 @@ public class NotificationActivity extends AppCompatActivity {
     private ImageView paletteIcon;
 
     private int colorSelection;
-    private int previousColor;
+    private SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sharedPref = getSharedPreferences("PREFERENCE", MODE_PRIVATE);
         checkFirstRun();
+        int defaultColor = R.color.white;
+        int colorValue = sharedPref.getInt(getString(R.string.saved_color_key), defaultColor);
         setContentView(R.layout.activity_notification);
         titleText = findViewById(R.id.titleTextBox);
         bodyText = findViewById(R.id.bodyTextBox);
-
         persistentSwitch = findViewById(R.id.persistentSwitch);
         paletteIcon = findViewById(R.id.colorpicker);
+        paletteIcon.setColorFilter(colorValue);
+
     }
 
     public void submitClick(View view) {
@@ -78,6 +83,9 @@ public class NotificationActivity extends AppCompatActivity {
                         if (positiveResult) {
                             colorSelection = color;
                             paletteIcon.setColorFilter(colorSelection);
+                            SharedPreferences.Editor editor = sharedPref.edit();
+                            editor.putInt(getString(R.string.saved_color_key), colorSelection);
+                            editor.apply();
                         }
                     }
                 }).build().show(getSupportFragmentManager(), "color palette");

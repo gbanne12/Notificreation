@@ -17,5 +17,9 @@
     <string name="color_palette_icon">confirm</string>
     <string name="alert_dialog">"Coloring of the notification is only allowed On Android O and above. To enable this the notification has to be made persistent as a service. Tap on the notification to dismiss and end the service"</string>
 
+    <!-- Shared preferences strings-->
+    <string name="saved_color_key">saved_color</string>
+
+
 
 </resources>
